@@ -3,30 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> QUIZ WEBAPP</title>
+  <title>General Quiz</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav>
-    <div>
-      <span id="timer">00:00</span>
-    </div>
-    <div class="user" id="navuser">Login to Start</div>
-    <div>
-      <button class="toggleMode" aria-label="Toggle light/dark mode" tabindex="0">Light/Dark</button>
+  <nav class="navbar">
+    <h2>General Quiz</h2>
+    <div class="nav-right">
+      <div class="user-info" id="userInfo"></div>
+      <button id="theme-toggle">🌙 Dark Mode</button>
     </div>
   </nav>
-  <div class="items">
-    <div id="Signin" class="card">
-      <h1>Login</h1>
-      <form id="loginForm">
-        <label for="username">Enter your Name </label><br/>
-        <input type="username" id="username" aria-label="Username" tabindex="0" required />
-        <label for="Password">Enter your Password </label><br/>
-        <input type="password" id="Password" aria-label="Password" tabindex="0" required />
-        <button type="submit" id="startquizbtn" aria-label="Username" tabindex="0">Start Quiz</button>
-      </form>
-
+  <div class="login-screen" id="loginScreen">
+    <h2>Welcome to the Quiz!</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Enter your name" required />
+      <button type="submit" id="loginBtn">Start Quiz</button>
+    </form>
+  </div>
+  <div class="app" id="quizApp" style="display: none;">
+    <div class="status-bar">
+      <div class="status-item attempted">Attempted: <span id="attempted-count">0</span></div>
+      <div class="status-item unattempted">Unattempted: <span id="unattempted-count">0</span></div>
+      <div class="status-item review">Marked for Review: <span id="review-count">0</span></div>
+    </div>
+    <div id="progress-container">
+      <div id="progress-bar"></div>
+    </div>
+    <div id="timer">Time left: 60s</div>
+    <h2 id="question">Question goes here</h2>
+    <div id="answer-buttons"></div>
+    <div class="controls">
+      <button id="next-btn">Next</button>
+      <button id="end-btn">End Quiz</button>
+      <button id="review-btn">Mark for Review</button>
     </div>
   </div>
-    
+  <script src="script.js"></script>
 </body>
+</html>
